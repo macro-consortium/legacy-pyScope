@@ -124,9 +124,9 @@ if flat_image == '':
     filter_raw = hdr_raw['filter'][0].upper()
     flat_imgstub = '{0}master_flat_{1}_{2:d}x{2:d}_{3}'.format(calib_dir, filter_raw.upper(), nbin, rmode)
     flat_imgs = glob.glob(flat_imgstub + '*.fts')
-if not flat_imgs:
-    sys.exit('Flat image does not exist, exiting')
-flat_image = flat_imgs[0]
+    if not flat_imgs:
+        sys.exit('Flat image not found, exiting')
+    flat_image = flat_imgs[0]
 
 if cal_image == '' : cal_image = raw_image
 
