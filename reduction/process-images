@@ -99,7 +99,7 @@ def process_image(img):
             logger.warning(cal.stderr.strip())
 
         # wcs and fwhm
-        if fil not in ('8', '9', 'S'): # don't do wcs, fwhm on grism or spectroscopy images
+        if fil not in ('8', '9', 'S', '6'): # don't do wcs, fwhm on grism or spectroscopy images
             # WCS solutions are obtained by running Pinpoint on TCC, otherwise use local wcs
             #runcmd(f'wcs -u 0.1 -o2w {str(img)} > /dev/null 2>&1')
             runcmd(f'fwhm -ow {str(img)}')
